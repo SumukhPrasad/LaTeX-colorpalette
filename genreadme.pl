@@ -3,7 +3,7 @@ use strict; use warnings;
 open my $styfh, '<', 'colorpalette.sty' or die "Whoops!";
 my $styfile = do { local $/; <$styfh> };
 my @matches;
-push @matches, "-`#$2` $1" while ( $styfile =~ /definecolor\{(.+)\}\{(?:.+)\}\{(.+)\}/g );
+push @matches, "- `#$2` $1" while ( $styfile =~ /definecolor\{(.+)\}\{(?:.+)\}\{(.+)\}/g );
 my $count = @matches;
 print "Found " . $count . " colours.\n";
 close($styfile);
