@@ -14,6 +14,7 @@ for my $i (0 .. $#glbl::sections) {
      $glbl::finishedlist = $glbl::finishedlist . "## $sections[$i][0]\n";
      my @matches;
      push @matches, "![#$2](https://placehold.co/15x15/$2/$2.png) `#$2` $1" while ( $glbl::sections[$i][1] =~ /definecolor\{(.+)\}\{(?:.+)\}\{(.+)\}/g );
+     $glbl::finishedlist = $glbl::finishedlist . "\n|Colours|-|-|-|\n| --- | --- | --- | --- |\n";
      while (@matches) {
           $glbl::finishedlist = $glbl::finishedlist . "| " . (join " | ", splice(@matches, 0, 4)) . " |\n";
      };
